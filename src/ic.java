@@ -156,7 +156,7 @@ final class ic extends rg {
 						return false;
 					}
 
-					if (gf.F == -1) {
+					if (gf.F == 0) {
 						--var1;
 						ch.W.read(1, (byte) -127, pg.packetBuffer.buffer, 0);
 						pg.packetBuffer.pointer = 0;
@@ -1592,37 +1592,31 @@ final class ic extends rg {
 						return true;
 					}
 
-					if (~gf.F == -5) {
+					if (gf.F == 4) {
 						var22 = pg.packetBuffer.readShort(118);
 						var3 = pg.packetBuffer.readInt(1029109968);
 						if (var22 == '\uffff') {
 							var22 = -1;
 						}
 
-						label1816:
-						{
-							var4 = pg.packetBuffer.readInt_V1((byte) -70);
-							var28 = tc.b(var4, (int) -124);
-							ei var6;
-							if (!var28.R) {
-								if (~var22 == 0) {
-									var28.bb = 0;
-									gf.F = -1;
-									return true;
-								}
-
-								var6 = jg.a((byte) -61, var22);
-								var28.bb = 4;
-								var28.C = 100 * var6.L / var3;
-								var28.k = var6.wb;
-								var28.S = var6.lb;
-								var28.nb = var22;
-								dg.a(var28, -114);
-								if (dummy == 0) {
-									break label1816;
-								}
+						var4 = pg.packetBuffer.readInt_V1((byte) -70);
+						var28 = tc.b(var4, -124);
+						ei var6;
+						if (!var28.R) {
+							if (~var22 == 0) {
+								var28.bb = 0;
+								gf.F = -1;
+								return true;
 							}
 
+							var6 = jg.a((byte) -61, var22);
+							var28.bb = 4;
+							var28.C = 100 * var6.L / var3;
+							var28.k = var6.wb;
+							var28.S = var6.lb;
+							var28.nb = var22;
+							dg.a(var28, -114);
+						} else {
 							var28.Kc = var3;
 							var28.Tb = var22;
 							var6 = jg.a((byte) -61, var22);
